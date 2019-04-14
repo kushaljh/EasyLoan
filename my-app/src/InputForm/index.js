@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { postLead } from '../fetcher';
+
 export default class InputForm extends Component {
     constructor(props) {
         super(props);
@@ -94,9 +96,11 @@ export default class InputForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(e) {
+    async handleSubmit() {
         console.log(this.state);
-        e.preventDefault();
+        const params = this.state;
+        const response = await postLead(params);
+        console.log(response);
     }
 
   onChange = (e) => {
@@ -132,11 +136,11 @@ export default class InputForm extends Component {
                           providedCreditRating: e.target.value,
                           providedNumericCreditScore: creditMap[e.target.value] } });
                   }}>
-                      <option value="excellent">excellent</option>
-                      <option value="good">good</option>
-                      <option value="fair">fair</option>
-                      <option value="poor">poor</option>
-                      <option value="limited">limited</option>
+                      <option value="excellent">720 and above</option>
+                      <option value="good">660 to 719</option>
+                      <option value="fair">600 to 659</option>
+                      <option value="poor">600 and below</option>
+                      <option value="limited">600 and below</option>
 
                   </select>
               </label><br/>
@@ -190,7 +194,7 @@ export default class InputForm extends Component {
                   }} >
                   </input>
               </label><br/>
-              <input type="submit" value="Submit" />
+              <button type="button" onClick={this.handleSubmit}>Click Me!</button>
 
           </form>
       );

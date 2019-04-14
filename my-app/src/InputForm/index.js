@@ -1,97 +1,47 @@
 import React, { Component } from 'react';
 
 import { postLead } from '../fetcher';
+import './style.css';
 
 export default class InputForm extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            productTypes: [
-                'loan',
-                'savings'
-            ],
-            personalInformation: {
-                'firstName': 'John',
-                'lastName': 'Doe',
-                'email': 'john@example.com',
-                'city': 'New York',
-                'state': 'NY',
-                'workPhone': '2125551234',
-                'primaryPhone': '2125556789',
-                'address1': '45 West 21st Street',
-                'address2': '5th Floor',
-                'zipcode': '10010',
-                'monthsAtAddress': 5,
-                'driversLicenseNumber': '111222333',
-                'driversLicenseState': 'NY',
-                'ipAddress': '8.8.8.8',
-                'activeMilitary': false,
-                'militaryVeteran': true,
-                'dateOfBirth': '1993-10-09',
-                'educationLevel': 'associate',
-                'ssn': '111-22-3333'
-            },
-            loanInformation: {
-                'purpose': 'home_refi',
-                'loanAmount': 10000
+            personalInformation:
+            {
+                firstName: 'Jane',
+                lastName: 'Doe',
+                email: 'john@example.com',
+                city: 'New York',
+                state: 'NY',
+                workPhone: '2125551234',
+                primaryPhone: '2125556789',
+                address1: '45 West 21st Street',
+                address2: '5th Floor',
+                zipcode: '10010',
+                monthsAtAddress: 5,
+                driversLicenseNumber: '111222333',
+                driversLicenseState: 'NY',
+                ipAddress: '8.8.8.8',
+                activeMilitary: false,
+                militaryVeteran: true,
+                dateOfBirth: '1998-10-09',
+                educationLevel: 'bachelors',
+                ssn: '857-96-4941' },
+            loanInformation: { purpose: 'home_refi', loanAmount: 10000 },
+            creditInformation: {
+                providedCreditRating: 'excellent',
+                providedNumericCreditScore: 750,
             },
             mortgageInformation: {
-                'propertyType': 'condo',
-                'propertyStatus': 'own_outright',
-                'propertyValue': 200000,
-                'mortgageBalance': 10000,
-                'lenderName': 'Bank OF NY',
-                'hasFHALoan': true,
-                'currentWithLoan': true
-            },
-            creditCardInformation: {
-                'allowAnnualFee': true,
-                'cardBenefits': [
-                    'travel_incentives'
-                ]
-            },
-            'creditInformation': {
-                'providedCreditRating': 'excellent',
-                'providedNumericCreditScore': 750
+                propertyStatus: 'own_outright',
             },
             financialInformation: {
-                'employmentStatus': 'employed',
-                'employmentPayFrequency': 'weekly',
-                'annualIncome': 120000,
-                'monthlyNetIncome': 10000,
-                'bankName': 'Santander',
-                'bankRoutingNumber': '231372691',
-                'bankAccountType': 'savings',
-                'monthsAtBank': 10,
-                'bankAccountNumber': '1234567890'
+                employmentStatus: 'employed',
+                employmentPayFrequency: 'weekly',
+                annualIncome: 0
             },
-            'employmentInformation': {
-                'employerName': 'EVEN Financial',
-                'employerAddress': '45 W 21st St',
-                'employerCity': 'New York',
-                'employerState': 'NY',
-                'employerZip': '10010',
-                'jobTitle': 'Software Engineer',
-                'monthsEmployed': 14,
-                'directDeposit': true,
-                'payDate1': '2004-10-06',
-                'payDate2': '2004-11-06'
-            },
-            'legalInformation': {
-                'consentsToFcra': true,
-                'consentsToTcpa': true,
-                'tcpaLanguage': 'I agree to be contacted by Even Financial and its partners at the telephone number(s) I have provided above to explore personal loan offers, including contact through automatic dialing systems, artificial or pre-recorded voice messaging, or text message. I understand my consent is not required as a condition to purchasing any goods or services from anyone.'
-            },
-            'clientTags': {
-                'hello': [
-                    'world',
-                    'there'
-                ],
-                'something': [
-                    'else'
-                ]
-            }
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -109,92 +59,114 @@ export default class InputForm extends Component {
 
   render() {
       return (
-          <form onSubmit={this.handleSubmit}>
+          <form>
+              <input type="radio" name="Even Financial"/> Even Financial
+              <h1>Personal Information</h1>
               <label>
-          What is your SSN:
-                  <input type="text" onChange={(e) => {
+                  SOCIAL SECURITY NUMBER:
+                  <br/>
+                  <input type="text" className="ssn" onChange={(e) => {
                       this.setState({ personalInformation: { ...this.state.personalInformation, ssn: e.target.value } });
                   }} >
                   </input>
               </label><br/>
 
-              <label>
-          Do your rent or own:
-                  <select onChange={(e) => {
-                      this.setState({ mortgageInformation: { ...this.state.mortgageInformation, propertyStatus: e.target.value } });
-                  }}>
-                      <option value="own_outright">Own</option>
-                      <option value="own_with_mortgage">Own with Mortgage</option>
-                      <option value="rent">Rent</option>
-                  </select>
-              </label><br/>
+              <div className="col">
+                  <div>
+                      <label className="home">
+          DO YOU RENT OR OWN A HOME: <br/>
+                          <select onChange={(e) => {
+                              this.setState({ mortgageInformation: { ...this.state.mortgageInformation, propertyStatus: e.target.value } });
+                          }}>
+                              <option value="own_outright">Own</option>
+                              <option value="own_with_mortgage">Own with Mortgage</option>
+                              <option value="rent">Rent</option>
+                          </select>
+                      </label>
+                  </div>
 
-              <label>
-          What is your credit rating:
-                  <select onChange={(e) => {
-                      this.setState({ creditInformation: { ...this.state.creditInformation,
-                          providedCreditRating: e.target.value,
-                          providedNumericCreditScore: creditMap[e.target.value] } });
-                  }}>
-                      <option value="excellent">720 and above</option>
-                      <option value="good">660 to 719</option>
-                      <option value="fair">600 to 659</option>
-                      <option value="poor">600 and below</option>
-                      <option value="limited">600 and below</option>
+                  <div className="education">
+                      <label>
+          HIGHEST LEVEL OF EDUCATION: <br/>
+                          <select onChange={(e) => {
+                              this.setState({ personalInformation: { ...this.state.personalInformation, educationLevel: e.target.value } });
+                          }}>
+                              <option value="associate">associate</option>
+                              <option value="bachelors">bachelors</option>
+                              <option value="high_school">high_school</option>
+                              <option value="masters">masters</option>
+                              <option value="other">other</option>
+                              <option value="other_grad_degree">other_grad_degree</option>
+                          </select>
+                      </label><br/>
+                  </div>
 
-                  </select>
-              </label><br/>
+              </div>
 
-              <label>
-          Education level:
-                  <select onChange={(e) => {
-                      this.setState({ personalInformation: { ...this.state.personalInformation, educationLevel: e.target.value } });
-                  }}>
-                      <option value="associate">associate</option>
-                      <option value="bachelors">bachelors</option>
-                      <option value="high_school">high_school</option>
-                      <option value="masters">masters</option>
-                      <option value="other">other</option>
-                      <option value="other_grad_degree">other_grad_degree</option>
-                  </select>
-              </label><br/>
+              <h1>Financial Information</h1>
 
-              <label>
+              <div className="col">
 
-          Employment Status:
-                  <select onChange={(e) => {
-                      this.setState({ financialInformation: { ...this.state.financialInformation, employmentStatus: e.target.value } });
-                  }}>
-                      <option value="employed">employed</option>
-                      <option value="military">military</option>
-                      <option value="not_employed">not employed</option>
-                      <option value="other">other</option>
-                      <option value="retired">retired</option>
-                      <option value="self_employed">self employed</option>
-                  </select>
-              </label><br/>
+                  <div>
+                      <label>
+            CREDIT SCORE RANGE:
+                          <select onChange={(e) => {
+                              this.setState({ creditInformation: { ...this.state.creditInformation,
+                                  providedCreditRating: e.target.value,
+                                  providedNumericCreditScore: creditMap[e.target.value] } });
+                          }}>
+                              <option value="excellent">720 and above</option>
+                              <option value="good">660 to 719</option>
+                              <option value="fair">600 to 659</option>
+                              <option value="poor">600 and below</option>
+                              <option value="limited">600 and below</option>
 
-              <label>
+                          </select>
+                      </label><br/>
 
-          Employment Pay frequency:
-                  <select onChange={(e) => {
-                      this.setState({ financialInformation: { ...this.state.financialInformation, employmentPayFrequency: e.target.value } });
-                  }}>
-                      <option value="weekly">weekly</option>
-                      <option value="biweekly">biweekly</option>
-                      <option value="twice_monthly">twice_monthly</option>
-                      <option value="monthly">monthly</option>
-                  </select>
-              </label><br/>
+                  </div>
+                  <div>
+                      <label>
+                        EMPLOYMENT STATUS:<br/>
+                          <select onChange={(e) => {
+                              this.setState({ financialInformation: { ...this.state.financialInformation, employmentStatus: e.target.value } });
+                          }}>
+                              <option value="employed">employed</option>
+                              <option value="military">military</option>
+                              <option value="not_employed">not employed</option>
+                              <option value="other">other</option>
+                              <option value="retired">retired</option>
+                              <option value="self_employed">self employed</option>
+                          </select>
+                      </label><br/>
+                  </div>
+              </div>
+              <div className="col">
+                  <div>
+                      <label>
+                      PAY FREQUENCY: <br/>
+                          <select onChange={(e) => {
+                              this.setState({ financialInformation: { ...this.state.financialInformation, employmentPayFrequency: e.target.value } });
+                          }}>
+                              <option value="weekly">weekly</option>
+                              <option value="biweekly">biweekly</option>
+                              <option value="twice_monthly">twice_monthly</option>
+                              <option value="monthly">monthly</option>
+                          </select>
+                      </label><br/>
+                  </div>
+                  <div>
+                      <label>
+                      ANNUAL INCOME: <br/>
+                          <input type="text" className="income" onChange={(e) => {
+                              this.setState({ financialInformation: { ...this.state.financialInformation, annualIncome: parseInt(e.target.value) } });
+                          }} >
+                          </input>
+                      </label><br/>
+                  </div>
+              </div>
 
-              <label>
-          What is your annual income:
-                  <input type="text" onChange={(e) => {
-                      this.setState({ financialInformation: { ...this.state.financialInformation, annualIncome: e.target.value } });
-                  }} >
-                  </input>
-              </label><br/>
-              <button type="button" onClick={this.handleSubmit}>Click Me!</button>
+              <button type="button" onClick={this.handleSubmit}>Submit</button>
 
           </form>
       );
@@ -202,7 +174,7 @@ export default class InputForm extends Component {
 }
 
 const creditMap = {
-    excellent: 730,
+    excellent: 750,
     good: 680,
     fair: 640,
     poor: 580,

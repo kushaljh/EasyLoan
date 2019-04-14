@@ -6,12 +6,12 @@ import { Switch, Route } from 'react-router-dom';
 class App extends Component {
     render() {
         return (
-            <main>
+            <div>
                 <Switch>
-                    <Route exact path="/" component={HomePage} />
+                    <Route exact path="/" component={InputForm} />
                     <Route path="/form" component={InputForm} />
                 </Switch>
-            </main>
+            </div>
         );
     }
 }

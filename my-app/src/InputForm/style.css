@@ -1,0 +1,91 @@
+
+
+.ssn {
+  box-sizing: border-box;
+  border: 1px solid #e9eaea;
+  font-size: 12px;
+  background-color: white;
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  margin-top: 12px;
+  border-radius: 2px;
+  width: 90%;
+}
+
+.income {
+  box-sizing: border-box;
+  border: 1px solid #e9eaea;
+  font-size: 12px;
+  background-color: white;
+  margin-top: 12px;
+  border-radius: 2px;
+
+}
+
+select {
+  box-sizing: border-box;
+  border: 1px solid #e9eaea;
+  font-size: 12px;
+  background-color: white;
+  margin-top: 12px;
+  border-radius: 2px;
+}
+
+label {
+  color: #545454;
+  font-size: 8px;
+}
+
+h1 {
+  overflow: hidden;
+  text-align: center;
+  font-size: 12px;
+ }
+ h1:before,
+ h1:after {
+  background-color: #333;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+ }
+ h1:before {
+  right: 0.5em;
+  margin-left: -50%;
+ }
+ 
+.col {
+  display:flex; 
+  justify-content: space-between;
+}
+
+.option {
+  width: 100%;
+}
+
+form {
+  padding: 20px;
+  width: 400px;
+  border: 1px solid gray;
+}
+
+.col > div {
+  width: 50%;
+  margin-top: 5px;
+}
+
+button {
+  width: 90%;
+  text-align: left;
+  background-color: #06e2bc; /* Green */
+  border: none;
+  color: white;
+  margin-top: 30px;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 10px;
+}

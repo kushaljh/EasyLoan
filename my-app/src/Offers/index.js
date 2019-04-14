@@ -67,6 +67,7 @@ class Offers extends Component {
         console.error('1:', this.state.offers[1]);
         return (
             <div className="offers">
+                <img src="/final.png" style= {{ width: 360, padding: 18 }}/>
                 <div className="offer-tab">
                     <img src= {'http://' + this.state.offers[0].originator.images[0].url} alt= {this.state.offers[0].originator.name} />
                     <span> | </span>

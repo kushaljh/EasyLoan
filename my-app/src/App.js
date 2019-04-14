@@ -10,6 +10,7 @@ import Offers from './Offers';
 import '!file-loader?name=[name].[ext]!./imgs/new_cc.png';
 import '!file-loader?name=[name].[ext]!./imgs/wallet.png';
 import '!file-loader?name=[name].[ext]!./imgs/enticing.png';
+import '!file-loader?name=[name].[ext]!./imgs/final.png';
 
 class App extends Component {
     render() {

@@ -13,7 +13,7 @@ button {
 }
 
 .offer-tab {
-  width: 380px;
+  width: 370px;
   font-size: 10px;
   display: flex;
   justify-content: space-around;
@@ -21,6 +21,7 @@ button {
   border: 1px solid #e0e6ea;
   color: #96a3ac;
   padding:10px;
+  margin-left: 3px;
   border-radius: 5px; 
 }
 
@@ -38,4 +39,11 @@ button {
 
 .offer-tab a {
   text-decoration: none;
+}
+
+.offers {
+    border: 1px solid #e0e6ea;
+    color: #96a3ac;
+    border-radius: 5;
+    width: 400px;
 }

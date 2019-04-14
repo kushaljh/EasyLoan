@@ -1,4 +1,4 @@
-const API_BASE = 'https://api.evenfinancial.com/';
+const API_BASE = 'https://api.evenfinancial.com';
 
 async function makeFetchCalls(url, data, method) {
     const options = const_options;
@@ -43,7 +43,5 @@ const const_options = {
     'headers': {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer e7675dd3-ff3b-434b-95aa-70251cc3784b_88140dd4-f13e-4ce3-8322-6eaf2ee9a2d2',
-        'cache-control': 'no-cache',
-        'Postman-Token': '7a5be88f-f3fe-46b1-ad90-f0b691bf0417'
     }
 };

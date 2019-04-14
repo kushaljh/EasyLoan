@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import InputForm from './InputForm';
 import './App.css';
-import * as V from 'victory';
+// import * as V from 'victory';
 import LineChart from './VisualEngine';
 
 class App extends Component {
@@ -10,7 +10,7 @@ class App extends Component {
             <div>
                 <InputForm />
                 <LineChart />
-            </div> 
+            </div>
         );
     }
 }

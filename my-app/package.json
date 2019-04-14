@@ -11,7 +11,8 @@
     "react-final-form": "^4.1.0",
     "react-material-form": "^1.1.2",
     "react-scripts": "2.1.8",
-    "react-vis": "^1.11.6"
+    "react-vis": "^1.11.6",
+    "victory": "^32.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

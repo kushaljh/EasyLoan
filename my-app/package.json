@@ -9,6 +9,7 @@
     "react-dom": "^16.8.6",
     "react-final-form": "^4.1.0",
     "react-material-form": "^1.1.2",
+    "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8"
   },
   "scripts": {

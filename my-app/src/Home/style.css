@@ -1,0 +1,19 @@
+.interest {
+  width: 100%;
+  text-align: center;
+  background-color:#0083ff; 
+  border: none;
+  color: white;
+  margin-top: 30px;
+  padding-left: 30px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 10px;
+}
+
+.homepage {
+  padding: 18px;
+  width: 360px;
+  border: 1px solid lightgray;
+}

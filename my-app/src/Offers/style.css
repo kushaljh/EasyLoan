@@ -1,0 +1,41 @@
+button {
+  width: 90%;
+  text-align: center;
+  background-color: #06e2bc; /* Green */
+  border: none;
+  color: white;
+  margin-top: 30px;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 10px;
+}
+
+.offer-tab {
+  width: 380px;
+  font-size: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid #e0e6ea;
+  color: #96a3ac;
+  padding:10px;
+  border-radius: 5px; 
+}
+
+.offer-tab button{
+  display: inline;
+  width: auto;
+  line-height: 10px;
+  margin: 0;
+}
+
+.offer-tab img {
+  height: 20px;
+  width: 40px;
+}
+
+.offer-tab a {
+  text-decoration: none;
+}

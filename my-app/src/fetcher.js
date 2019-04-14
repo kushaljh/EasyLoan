@@ -29,9 +29,10 @@ export async function postLead(leadData) {
 }
 
 export async function getRateTables(uuid) {
+    console.log('calling getRateTables');
     let res;
     try {
-        res = await makeFetchCalls(`${API_BASE}/leads/rateTables/${uuid}`, 'POST');
+        res = await makeFetchCalls(`${API_BASE}/leads/rateTables/${uuid}`, 'GET');
     }
     catch (err) {
         throw new Error('Error posting leads');

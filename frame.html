@@ -25,9 +25,18 @@
 
 <html>
 <head>
-    <style>html, body { height: 100%; overflow: hidden; }</style>
+    <style>
+      html, body { height: 100%; }
+      body { display: flex; }
+      iframe { padding: 5px; margin: 10px }
+    </style>
 </head>
-<body>
-    <img src="/wp-content/uploads/flamingo.jpg">
-    <iframe src="http://localhost:3000/" width="430" height="450"></iframe></body>
+  <body>
+    <div>
+        <img src="./my-app/partner.png" width="800" height="800" />
+    </div>
+    <div>
+      <iframe src="http://localhost:3000/" width="400" height="800"></iframe>
+    </div>
+  </body>
 </html>

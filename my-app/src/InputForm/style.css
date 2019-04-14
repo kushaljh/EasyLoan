@@ -66,9 +66,9 @@ h1 {
 }
 
 form {
-  padding: 20px;
-  width: 400px;
-  border: 1px solid gray;
+  padding: 18px;
+  width: 360px;
+  border: 1px solid lightgray;
 }
 
 .col > div {

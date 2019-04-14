@@ -3,8 +3,40 @@ import { VictoryChart, VictoryLine, VictoryTheme, VictoryLegend } from 'victory'
 // import {XYPlot, LineMarkSeries, LineSeries, MarkSeries, HorizontalGridLines, VerticalGridLines, XAxis,
 // YAxis} from 'react-vis';
 
+function calcCreditAmount() {
+    const rate = 0.0003947945205; 
+    let data = [{
+        "x": 22, 
+        "y": 5000, 
+        "interest": 1.973972603
+    }]
+    
+    let start = 22; 
+    let current = 23; 
+    let end = 720; 
+    
+    while (current !== end) {
+        let amount = data[current - (start + 1)].y+ data[current - (start + 1)].interest; 
+        let temp = {
+            "x": current,
+            "y" : amount,
+            "interest": amount * rate
+        }; 
+        data.push(temp); 
+        current++; 
+    }
+
+    data = data.map(x => {
+        delete x.interest;
+        return x;
+    });
+    console.log(data);
+    return data; 
+}
+
 class LineChart extends Component {
     render() {
+        let data1 = calcCreditAmount(); 
         return (
             <VictoryChart
                 theme={VictoryTheme.material}
@@ -26,8 +58,8 @@ class LineChart extends Component {
                         data: { stroke: '#c43a31' },
                         parent: { border: '1px solid #ccc' }
                     }}
-
-                /> */}
+                    data = {data1}
+                />
 
                 {/* <VictoryLine
                     style={{
@@ -57,66 +89,3 @@ class LineChart extends Component {
 
 export default LineChart;
 
-/*
-
-const series1 =[
-    { x: 1, y: 2 },
-    { x: 2, y: 3 },
-    { x: 3, y: 5 },
-    { x: 4, y: 4 },
-    { x: 5, y: 7 }
-];
-
-const series2 = [
-    { x: 4, y: 1 },
-    { x: 5, y: 0 },
-    { x: 2, y: 6 },
-    { x: 3, y: 7 },
-    { x: 4, y: 2 }
-];
-
-class LineChart extends React.Component {
-
-    /*
-    render() {
-
-        return (
-            <XYPlot height={200} width={200}
-                colorType="linear"
-                colorDomain={[0, 1]}
-            >
-            <LineSeries data={series1} color={0} />
-            <LineSeries data={series2} color={1} />
-          </XYPlot>
-        );
-
-    }*/
-/*
-    render() {
-        const data = [
-            {x: 0, y: 8},
-            {x: 1, y: 5},
-            {x: 2, y: 4},
-            {x: 3, y: 9},
-            {x: 4, y: 1},
-            {x: 5, y: 7},
-            {x: 6, y: 6},
-            {x: 7, y: 3},
-            {x: 8, y: 2},
-            {x: 9, y: 0}
-          ];
-        return (
-          <div className="App">
-            <XYPlot width={1200} height={1200}>
-                <XAxis/><YAxis/>
-                <HorizontalGridLines />
-                <VerticalGridLines />
-                <LineMarkSeries data={data} strokeWidth={10} />
-            </XYPlot>
-          </div>
-        );
-      }
-
-}
-
-export default LineChart; */

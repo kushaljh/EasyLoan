@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { postLead } from '../fetcher';
+import './style.css';
 
 export default class InputForm extends Component {
     constructor(props) {
@@ -59,16 +60,18 @@ export default class InputForm extends Component {
   render() {
       return (
           <form onSubmit={this.handleSubmit}>
+
               <label>
-          What is your SSN:
-                  <input type="text" onChange={(e) => {
+          SOCIAL SECURITY NUMBER:
+                  <br/>
+                  <input type="text" className="ssn" onChange={(e) => {
                       this.setState({ personalInformation: { ...this.state.personalInformation, ssn: e.target.value } });
                   }} >
                   </input>
               </label><br/>
 
               <label>
-          Do your rent or own:
+          DO YOU RENT OR OWN A HOME:
                   <select onChange={(e) => {
                       this.setState({ mortgageInformation: { ...this.state.mortgageInformation, propertyStatus: e.target.value } });
                   }}>
@@ -76,10 +79,24 @@ export default class InputForm extends Component {
                       <option value="own_with_mortgage">Own with Mortgage</option>
                       <option value="rent">Rent</option>
                   </select>
-              </label><br/>
+              </label>
 
               <label>
-          What is your credit rating:
+          HIGHEST LEVEL OF EDUCATION:
+                  <select onChange={(e) => {
+                      this.setState({ personalInformation: { ...this.state.personalInformation, educationLevel: e.target.value } });
+                  }}>
+                      <option value="associate">associate</option>
+                      <option value="bachelors">bachelors</option>
+                      <option value="high_school">high_school</option>
+                      <option value="masters">masters</option>
+                      <option value="other">other</option>
+                      <option value="other_grad_degree">other_grad_degree</option>
+                  </select>
+              </label><br/>
+              <label>
+
+          CREDIT SCORE RANGE:
                   <select onChange={(e) => {
                       this.setState({ creditInformation: { ...this.state.creditInformation,
                           providedCreditRating: e.target.value,
@@ -95,22 +112,8 @@ export default class InputForm extends Component {
               </label><br/>
 
               <label>
-          Education level:
-                  <select onChange={(e) => {
-                      this.setState({ personalInformation: { ...this.state.personalInformation, educationLevel: e.target.value } });
-                  }}>
-                      <option value="associate">associate</option>
-                      <option value="bachelors">bachelors</option>
-                      <option value="high_school">high_school</option>
-                      <option value="masters">masters</option>
-                      <option value="other">other</option>
-                      <option value="other_grad_degree">other_grad_degree</option>
-                  </select>
-              </label><br/>
 
-              <label>
-
-          Employment Status:
+          EMPLOYMENT STATUS:
                   <select onChange={(e) => {
                       this.setState({ financialInformation: { ...this.state.financialInformation, employmentStatus: e.target.value } });
                   }}>
@@ -125,7 +128,7 @@ export default class InputForm extends Component {
 
               <label>
 
-          Employment Pay frequency:
+          PAY FREQUENCY:
                   <select onChange={(e) => {
                       this.setState({ financialInformation: { ...this.state.financialInformation, employmentPayFrequency: e.target.value } });
                   }}>
@@ -137,8 +140,8 @@ export default class InputForm extends Component {
               </label><br/>
 
               <label>
-          What is your annual income:
-                  <input type="text" onChange={(e) => {
+          ANNUAL INCOME:
+                  <input type="text" className="income" onChange={(e) => {
                       this.setState({ financialInformation: { ...this.state.financialInformation, annualIncome: parseInt(e.target.value) } });
                   }} >
                   </input>

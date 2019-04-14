@@ -1,0 +1,32 @@
+input[type=text]  {
+  
+}
+
+.ssn {
+  width: 10%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  font-size: 8px;
+  background-color: white;
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  margin: 12px;
+}
+
+select {
+  width: 10%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  font-size: 8px;
+  background-color: white;
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  margin: 12px;
+}
+
+label {
+  color: #d4d9dd;
+  font-size: 12px;
+
+
+}

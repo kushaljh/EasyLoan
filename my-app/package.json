@@ -3,19 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "d3-scale": "^3.0.0",
     "final-form": "^4.12.0",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.6",
     "react-final-form": "^4.1.0",
     "react-material-form": "^1.1.2",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "react-vis": "^1.11.6"
   },
   "scripts": {
     "start": "react-scripts start",
+    "watch": "npm-watch",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "watch": {
+    "build": "src/"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -25,5 +31,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "npm-watch": "^0.6.0"
+  }
 }

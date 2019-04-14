@@ -59,10 +59,11 @@ export default class InputForm extends Component {
 
   render() {
       return (
-          <form onSubmit={this.handleSubmit}>
-
+          <form>
+              <input type="radio" name="Even Financial"/> Even Financial
+              <h1>Personal Information</h1>
               <label>
-          SOCIAL SECURITY NUMBER:
+                  SOCIAL SECURITY NUMBER:
                   <br/>
                   <input type="text" className="ssn" onChange={(e) => {
                       this.setState({ personalInformation: { ...this.state.personalInformation, ssn: e.target.value } });
@@ -70,83 +71,102 @@ export default class InputForm extends Component {
                   </input>
               </label><br/>
 
-              <label>
-          DO YOU RENT OR OWN A HOME:
-                  <select onChange={(e) => {
-                      this.setState({ mortgageInformation: { ...this.state.mortgageInformation, propertyStatus: e.target.value } });
-                  }}>
-                      <option value="own_outright">Own</option>
-                      <option value="own_with_mortgage">Own with Mortgage</option>
-                      <option value="rent">Rent</option>
-                  </select>
-              </label>
+              <div className="col">
+                  <div>
+                      <label className="home">
+          DO YOU RENT OR OWN A HOME: <br/>
+                          <select onChange={(e) => {
+                              this.setState({ mortgageInformation: { ...this.state.mortgageInformation, propertyStatus: e.target.value } });
+                          }}>
+                              <option value="own_outright">Own</option>
+                              <option value="own_with_mortgage">Own with Mortgage</option>
+                              <option value="rent">Rent</option>
+                          </select>
+                      </label>
+                  </div>
 
-              <label>
-          HIGHEST LEVEL OF EDUCATION:
-                  <select onChange={(e) => {
-                      this.setState({ personalInformation: { ...this.state.personalInformation, educationLevel: e.target.value } });
-                  }}>
-                      <option value="associate">associate</option>
-                      <option value="bachelors">bachelors</option>
-                      <option value="high_school">high_school</option>
-                      <option value="masters">masters</option>
-                      <option value="other">other</option>
-                      <option value="other_grad_degree">other_grad_degree</option>
-                  </select>
-              </label><br/>
-              <label>
+                  <div className="education">
+                      <label>
+          HIGHEST LEVEL OF EDUCATION: <br/>
+                          <select onChange={(e) => {
+                              this.setState({ personalInformation: { ...this.state.personalInformation, educationLevel: e.target.value } });
+                          }}>
+                              <option value="associate">associate</option>
+                              <option value="bachelors">bachelors</option>
+                              <option value="high_school">high_school</option>
+                              <option value="masters">masters</option>
+                              <option value="other">other</option>
+                              <option value="other_grad_degree">other_grad_degree</option>
+                          </select>
+                      </label><br/>
+                  </div>
 
-          CREDIT SCORE RANGE:
-                  <select onChange={(e) => {
-                      this.setState({ creditInformation: { ...this.state.creditInformation,
-                          providedCreditRating: e.target.value,
-                          providedNumericCreditScore: creditMap[e.target.value] } });
-                  }}>
-                      <option value="excellent">720 and above</option>
-                      <option value="good">660 to 719</option>
-                      <option value="fair">600 to 659</option>
-                      <option value="poor">600 and below</option>
-                      <option value="limited">600 and below</option>
+              </div>
 
-                  </select>
-              </label><br/>
+              <h1>Financial Information</h1>
 
-              <label>
+              <div className="col">
 
-          EMPLOYMENT STATUS:
-                  <select onChange={(e) => {
-                      this.setState({ financialInformation: { ...this.state.financialInformation, employmentStatus: e.target.value } });
-                  }}>
-                      <option value="employed">employed</option>
-                      <option value="military">military</option>
-                      <option value="not_employed">not employed</option>
-                      <option value="other">other</option>
-                      <option value="retired">retired</option>
-                      <option value="self_employed">self employed</option>
-                  </select>
-              </label><br/>
+                  <div>
+                      <label>
+            CREDIT SCORE RANGE:
+                          <select onChange={(e) => {
+                              this.setState({ creditInformation: { ...this.state.creditInformation,
+                                  providedCreditRating: e.target.value,
+                                  providedNumericCreditScore: creditMap[e.target.value] } });
+                          }}>
+                              <option value="excellent">720 and above</option>
+                              <option value="good">660 to 719</option>
+                              <option value="fair">600 to 659</option>
+                              <option value="poor">600 and below</option>
+                              <option value="limited">600 and below</option>
 
-              <label>
+                          </select>
+                      </label><br/>
 
-          PAY FREQUENCY:
-                  <select onChange={(e) => {
-                      this.setState({ financialInformation: { ...this.state.financialInformation, employmentPayFrequency: e.target.value } });
-                  }}>
-                      <option value="weekly">weekly</option>
-                      <option value="biweekly">biweekly</option>
-                      <option value="twice_monthly">twice_monthly</option>
-                      <option value="monthly">monthly</option>
-                  </select>
-              </label><br/>
+                  </div>
+                  <div>
+                      <label>
+                        EMPLOYMENT STATUS:<br/>
+                          <select onChange={(e) => {
+                              this.setState({ financialInformation: { ...this.state.financialInformation, employmentStatus: e.target.value } });
+                          }}>
+                              <option value="employed">employed</option>
+                              <option value="military">military</option>
+                              <option value="not_employed">not employed</option>
+                              <option value="other">other</option>
+                              <option value="retired">retired</option>
+                              <option value="self_employed">self employed</option>
+                          </select>
+                      </label><br/>
+                  </div>
+              </div>
+              <div className="col">
+                  <div>
+                      <label>
+                      PAY FREQUENCY: <br/>
+                          <select onChange={(e) => {
+                              this.setState({ financialInformation: { ...this.state.financialInformation, employmentPayFrequency: e.target.value } });
+                          }}>
+                              <option value="weekly">weekly</option>
+                              <option value="biweekly">biweekly</option>
+                              <option value="twice_monthly">twice_monthly</option>
+                              <option value="monthly">monthly</option>
+                          </select>
+                      </label><br/>
+                  </div>
+                  <div>
+                      <label>
+                      ANNUAL INCOME: <br/>
+                          <input type="text" className="income" onChange={(e) => {
+                              this.setState({ financialInformation: { ...this.state.financialInformation, annualIncome: parseInt(e.target.value) } });
+                          }} >
+                          </input>
+                      </label><br/>
+                  </div>
+              </div>
 
-              <label>
-          ANNUAL INCOME:
-                  <input type="text" className="income" onChange={(e) => {
-                      this.setState({ financialInformation: { ...this.state.financialInformation, annualIncome: parseInt(e.target.value) } });
-                  }} >
-                  </input>
-              </label><br/>
-              <button type="button" onClick={this.handleSubmit}>Click Me!</button>
+              <button type="button" onClick={this.handleSubmit}>Submit</button>
 
           </form>
       );

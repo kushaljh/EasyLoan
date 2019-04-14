@@ -27,13 +27,14 @@ class LineChart extends Component {
                         parent: { border: '1px solid #ccc' }
                     }}
 
-                />
+                /> */}
 
-                <VictoryLine
+                {/* <VictoryLine
                     style={{
                         data: { stroke: '#10c49a' },
                         parent: { border: '1px solid #bbb' }
                     }}
+                    interpolation="natural"
                     data={[
                         { x: 4, y: 1 },
                         { x: 5, y: 0 },
@@ -43,6 +44,11 @@ class LineChart extends Component {
                     ]}
 
                 />
+                {/* <VictoryLine
+                    samples={100}
+                    style={{ data: { stroke: 'red' } }}
+                    y={(d) => Math.cos(5 * Math.PI * d.x)}
+                /> */}
 
             </VictoryChart>
         );
